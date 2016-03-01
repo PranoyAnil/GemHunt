@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class GameController : MonoBehaviour {
 	// PRIVATE INSTANCE VARIABLES
@@ -9,74 +9,94 @@ public class GameController : MonoBehaviour {
 	private int _livesValue;
 
 
-	// PUBLIC ACCESS METHODS
-	//public int ScoreValue {
-	//	get {
-	//		return this._scoreValue;
-	//	}
+    // PUBLIC ACCESS METHODS
+    public int ScoreValue
+    {
+        get
+        {
+            return this._scoreValue;
+        }
 
-	//	set {
-	//		this._scoreValue = value;
-	//		this.ScoreLabel.text = "Score: " + this._scoreValue;
-	//	}
-	//}
+        set
+        {
+            this._scoreValue = value;
 
-	//public int LivesValue {
-	//	get {
-	//		return this._livesValue;
-	//	}
 
-	//	set {
-	//		this._livesValue = value;
-	//		if (this._livesValue <= 0) {
-	//			this._endGame ();
-	//		} else {
-	//			this.LivesLabel.text = "Lives: " + this._livesValue;
-	//		}
-	//	}
-	//}
-		
-	//// PUBLIC INSTANCE VARIABLES
-	//public Text LivesLabel;
-	//public Text ScoreLabel;
-	//public Text GameOverLabel;
-	//public Text HighScoreLabel;
-	//public Button RestartButton;
 
-	//// Use this for initialization
-	//void Start () {
-	//	this._initialize ();
+             
+            this.Score.text = "Score: " + this._scoreValue;
+        }
+    }
 
-	//}
-	
-	//// Update is called once per frame
-	//void Update () {
-	
-	//}
+    public int LivesValue
+    {
+        get
+        {
+            return this._livesValue;
+        }
 
-	////PRIVATE METHODS ++++++++++++++++++
+        set
+        {
+            this._livesValue = value;
+            if (this._livesValue <= 0)
+            {
+                this._endGame();
+            }
+            else {
+                this.Lives.text = "Lives: " + this._livesValue;
+            }
+        }
+    }
 
-	////Initial Method
-	//private void _initialize() {
-	//	this.ScoreValue = 0;
-	//	this.LivesValue = 5;
-	//	//this.GameOverLabel.gameObject.SetActive (false);
-	//	//this.HighScoreLabel.gameObject.SetActive (false);
-	//	//this.RestartButton.gameObject.SetActive(false);
-	//}
+    // PUBLIC INSTANCE VARIABLES
+    public Text Lives;
+    public Text Score;
+    public Text GameOver;
+    public Text HighScore;
+    public Button RestartButton;
+    public PlayerController Player;
+    
 
-	//private void _endGame() {
-	//	//this.HighScoreLabel.text = "High Score: " + this._scoreValue;
-	//	//this.GameOverLabel.gameObject.SetActive (true);
-	//	//this.HighScoreLabel.gameObject.SetActive (true);
-	//	this.LivesLabel.gameObject.SetActive (false);
-	//	this.ScoreLabel.gameObject.SetActive (false);
-	//	//this.RestartButton.gameObject.SetActive (true);
-	//}
+    // Use this for initialization
+    void Start()
+    {
+        this._initialize();
 
-	//// PUBLIC METHODS
+    }
 
-	//public void RestartButtonClick() {
-	//	SceneManager.LoadScene (SceneManager.GetActiveScene().name);
-	//}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    //PRIVATE METHODS ++++++++++++++++++
+
+    //Initial Method
+    private void _initialize()
+    {
+        this.ScoreValue = 0;
+        this.LivesValue = 5;
+        this.GameOver.gameObject.SetActive (false);
+        this.HighScore.gameObject.SetActive (false);
+        this.RestartButton.gameObject.SetActive(false);
+    }
+
+    private void _endGame()
+    {
+        this.HighScore.text = "High Score: " + this._scoreValue;
+       this.GameOver.gameObject.SetActive (true);
+        this.HighScore.gameObject.SetActive (true);
+        this.Lives.gameObject.SetActive(false);
+        this.Score.gameObject.SetActive(false);
+        this.RestartButton.gameObject.SetActive (true);
+        this.Player.gameObject.SetActive(false);
+    }
+
+    // PUBLIC METHODS
+
+    public void RestartButtonClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

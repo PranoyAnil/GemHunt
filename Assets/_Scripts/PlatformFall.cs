@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Source file name:PlatformFall
+//Author’s name:Pranoy Anil
+//Last Modified by:Pranoy Anil
+//Date last Modified:1/3/16 
+//Program description: GemHunt - Assignment 02
+
 public class PlatformFall : MonoBehaviour {
 
     public float fallDelay = 1f;

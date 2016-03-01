@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Source file name:SpawnPlatforms
+//Author’s name:Pranoy Anil
+//Last Modified by:Pranoy Anil
+//Date last Modified:1/3/16 
+//Program description: GemHunt - Assignment 02
+
 public class SpawnPlatforms : MonoBehaviour {
     public int maxPlatforms = 20;
     public GameObject platform;

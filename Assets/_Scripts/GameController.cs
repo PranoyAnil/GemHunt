@@ -3,6 +3,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
+//Source file name:GameController
+//Author’s name:Pranoy Anil
+//Last Modified by:Pranoy Anil
+//Date last Modified:1/3/16 
+//Program description: GemHunt - Assignment 02
+
 public class GameController : MonoBehaviour {
 	// PRIVATE INSTANCE VARIABLES
 	private int _scoreValue;

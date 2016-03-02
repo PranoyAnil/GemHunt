@@ -86,6 +86,7 @@ public class GameController : MonoBehaviour {
         this.GameOver.gameObject.SetActive (false);
         this.HighScore.gameObject.SetActive (false);
         this.RestartButton.gameObject.SetActive(false);
+        
     }
 
     private void _endGame()
@@ -96,7 +97,7 @@ public class GameController : MonoBehaviour {
         this.Lives.gameObject.SetActive(false);
         this.Score.gameObject.SetActive(false);
         this.RestartButton.gameObject.SetActive (true);
-        this.Player.gameObject.SetActive(false);
+        
     }
 
     // PUBLIC METHODS
